@@ -24,11 +24,7 @@ const patchMyUser = (req, resp) => {
 
   userControllers
     .updateUser(id, { name, password })
-    .then((data) => {
-      data[0]
-        ? resp.status(200).json({ message: `Update Record` })
-        : resp.status(404).json({ message: `Invalid ID` });
-    })
+    .then((data) => resp.status(200).json({ message: `Update Record` }))
     .catch((err) => resp.status(400).json({ message: err.message }));
 };
 
